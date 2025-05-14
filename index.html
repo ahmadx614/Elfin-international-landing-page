@@ -1,0 +1,179 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elfin International - Premium Leather Goods</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles for leather texture and hover effects */
+    .leather-bg {
+      background-image: linear-gradient(rgba(74, 44, 15, 0.8), rgba(74, 44, 15, 0.8)), url('https://via.placeholder.com/1920x1080?text=Leather+Texture');
+      background-size: cover;
+      background-position: center;
+    }
+    .product-card img {
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+    .btn-tan:hover {
+      background-color: #F5E8C7;
+      color: #1A1A1A;
+    }
+  </style>
+</head>
+<body class="bg-cream text-black font-sans">
+  <!-- Header -->
+  <header class="bg-brown text-cream sticky top-0 z-10 shadow-lg">
+    <nav class="container mx-auto flex justify-between items-center py-4 px-6">
+      <div class="text-3xl font-serif">Elfin International</div>
+      <ul class="flex space-x-6">
+        <li><a href="#home" class="hover:text-tan">Home</a></li>
+        <li><a href="#about" class="hover:text-tan">About</a></li>
+        <li><a href="#products" class="hover:text-tan">Products</a></li>
+        <li><a href="#customization" class="hover:text-tan">Customization</a></li>
+        <li><a href="#contact" class="hover:text-tan">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="leather-bg h-screen flex items-center justify-center text-center text-cream">
+    <div class="container mx-auto px-6">
+      <h1 class="text-5xl md:text-6xl font-serif mb-4">Crafted Leather, Timeless Style</h1>
+      <p class="text-xl mb-6">Discover premium full-grain leather bags at Elfin International.</p>
+      <a href="#products" class="inline-block bg-tan text-black py-3 px-6 rounded-lg text-lg font-semibold btn-tan">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Brand Intro -->
+  <section class="py-16 bg-cream">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-4xl font-serif text-brown mb-6">Welcome to Elfin International</h2>
+      <p class="text-lg max-w-2xl mx-auto">Premium full-grain leather bags blending quality, affordability, and style. Discover duffels, totes, slings, and more, crafted with unparalleled expertise.</p>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section id="products" class="py-16 bg-tan">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-serif text-brown text-center mb-12">Our Collection</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Duffel Bag -->
+        <div class="product-card bg-cream rounded-lg shadow-lg overflow-hidden">
+          <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+            <img src="https://via.placeholder.com/400x400?text=Duffel+Bag" alt="Duffel Bag" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-serif text-brown">Duffel Bag</h3>
+            <p class="text-lg text-black mb-2">₹4,499</p>
+            <p class="text-sm mb-4">Spacious and durable, perfect for travel or gym use. Crafted with precision.</p>
+            <a href="#" class="inline-block bg-brown text-cream py-2 px-4 rounded-lg btn-tan">Add to Cart</a>
+          </div>
+        </div>
+        <!-- Sling Bag -->
+        <div class="product-card bg-cream rounded-lg shadow-lg overflow-hidden">
+          <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+            <img src="https://via.placeholder.com/400x400?text=Sling+Bag" alt="Sling Bag" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-serif text-brown">Sling Bag</h3>
+            <p class="text-lg text-black mb-2">₹1,599</p>
+            <p class="text-sm mb-4">Sleek and compact, ideal for daily essentials with a minimalist design.</p>
+            <a href="#" class="inline-block bg-brown text-cream py-2 px-4 rounded-lg btn-tan">Add to Cart</a>
+          </div>
+        </div>
+        <!-- Laptop Bag -->
+        <div class="product-card bg-cream rounded-lg shadow-lg overflow-hidden">
+          <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+            <img src="https://via.placeholder.com/400x400?text=Laptop+Bag" alt="Laptop Bag" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-serif text-brown">Laptop Bag</h3>
+            <p class="text-lg text-black mb-2">₹2,499</p>
+            <p class="text-sm mb-4">Protect your laptop in style with ample space and a refined look.</p>
+            <a href="#" class="inline-block bg-brown text-cream py-2 px-4 rounded-lg btn-tan">Add to Cart</a>
+          </div>
+        </div>
+        <!-- Tote Bag -->
+        <div class="product-card bg-cream rounded-lg shadow-lg overflow-hidden">
+          <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+            <img src="https://via.placeholder.com/400x400?text=Tote+Bag" alt="Tote Bag" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-serif text-brown">Tote Bag</h3>
+            <p class="text-lg text-black mb-2">₹2,199</p>
+            <p class="text-sm mb-4">Versatile and chic, perfect for work or casual outings with lasting quality.</p>
+            <a href="#" class="inline-block bg-brown text-cream py-2 px-4 rounded-lg btn-tan">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brown text-cream py-8">
+    <div class="container mx-auto px-6 text-center">
+      <p class="text-lg mb-4">Elfin International &copy; 2025. All rights reserved.</p>
+      <div class="flex justify-center space-x-4">
+        <a href="#" class="hover:text-tan">Instagram</a>
+        <a href="#" class="hover:text-tan">Facebook</a>
+        <a href="#" class="hover:text-tan">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
