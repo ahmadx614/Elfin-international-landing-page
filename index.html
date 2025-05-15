@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elfin International - Luxury Leather Goods</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Razorpay Checkout Script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    /* Custom Luxury Brown Leather Theme */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #F8F1E9; /* Cream background */
+      color: #3C2F2F; /* Deep brown text */
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: #4A2C0F; /* Rich brown for headings */
+    }
+    .leather-bg {
+      background-image: linear-gradient(rgba(74, 44, 15, 0.85), rgba(74, 44, 15, 0.85)), url('https://www.transparenttextures.com/patterns/leather.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .btn-luxury {
+      background-color: #D4A373; /* Tan */
+      color: #3C2F2F;
+      transition: all 0.3s ease;
+    }
+    .btn-luxury:hover {
+      background-color: #F8F1E9;
+      color: #4A2C0F;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .product-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    .product-card img {
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+    .founder-card {
+      background-color: #4A2C0F;
+      color: #F8F1E9;
+      border-radius: 8px;
+      padding: 2rem;
+      transition: transform 0.3s ease;
+    }
+    .founder-card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="leather-bg sticky top-0 z-20 shadow-lg">
+    <nav class="container mx-auto flex justify-between items-center py-5 px-6">
+      <div class="text-4xl font-bold text-[#F8F1E9]">Elfin International</div>
+      <ul class="flex space-x-8 text-[#F8F1E9] text-lg">
+        <li><a href="#home" class="hover:text-[#D4A373] transition-colors">Home</a></li>
+        <li><a href="#about" class="hover:text-[#D4A373] transition-colors">About</a></li>
+        <li><a href="#products" class="hover:text-[#D4A373] transition-colors">Products</a></li>
+        <li><a href="#founders" class="hover:text-[#D4A373] transition-colors">Founders</a></li>
+        <li><a href="#contact" class="hover:text-[#D4A373] transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="leather-bg h-screen flex items-center justify-center text-center text-[#F8F1E9]">
+    <div class="container mx-auto px-6">
+      <h1 class="text-6xl md:text-7xl font-bold mb-6 leading-tight">Timeless Luxury in Leather</h1>
+      <p class="text-2xl mb-8 max-w-3xl mx-auto">Discover the finest full-grain leather bags, crafted with elegance and precision at Elfin International.</p>
+      <a href="#products" class="inline-block btn-luxury py-4 px-8 rounded-lg text-xl font-semibold">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Brand Intro -->
+  <section class="py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-5xl font-bold mb-6">Welcome to Elfin International</h2>
+      <p class="text-xl max-w-3xl mx-auto leading-relaxed">We specialize in premium full-grain leather bags that blend luxury, durability, and style. From duffels to totes, each piece is a testament to our dedication to craftsmanship.</p>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section id="about" class="py-20 leather-bg text-[#F8F1E9]">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-8 md:mb-0">
+        <div class="w-full h-[500px] bg-gray-200 flex items-center justify-center rounded-lg overflow-hidden">
+          <img src="https://via.placeholder.com/600x500?text=Leather+Workshop" alt="Leather Workshop" class="w-full h-full object-cover">
+        </div>
+      </div>
+      <div class="md:w-1/2 md:pl-10">
+        <h2 class="text-5xl font-bold mb-6">Our Legacy</h2>
+        <p class="text-lg mb-4 leading-relaxed">Elfin International (LLP) is a premier manufacturer of full-grain leather bags, offering a perfect balance of luxury and affordability. We cater to clients worldwide with our export-quality products and bespoke customization services.</p>
+        <p class="text-lg mb-4 leading-relaxed">Our collections, including duffels, totes, slings, and laptop bags, are crafted to meet international standards while maintaining competitive pricing. Every piece reflects our passion for quality and innovation.</p>
+        <p class="text-lg mb-6 leading-relaxed">Choose Elfin International for leather goods that elevate your style and stand the test of time.</p>
+        <a href="#products" class="inline-block btn-luxury py-3 px-6 rounded-lg text-lg font-semibold">Explore Our Craft</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founders Section -->
+  <section id="founders" class="py-20 bg-[#D4A373]">
+    <div class="container mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-12">Meet Our Founders</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <!-- Founder 1: Mehre Alam -->
+        <div class="founder-card text-center">
+          <h3 class="text-3xl font-bold mb-4">Mehre Alam</h3>
+          <p class="text-lg leading-relaxed">With a vision for luxury and craftsmanship, Mehre Alam co-founded Elfin International to bring timeless leather designs to the world. His expertise in leather production ensures every product meets the highest standards of quality.</p>
+        </div>
+        <!-- Founder 2: Bahauddin -->
+        <div class="founder-card text-center">
+          <h3 class="text-3xl font-bold mb-4">Bahauddin</h3>
+          <p class="text-lg leading-relaxed">Bahauddin’s passion for innovation and design drives Elfin International’s unique offerings. He oversees customization and export operations, ensuring clients receive bespoke leather goods that reflect their personal style.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-12">Our Luxurious Collection</h2>
+
+      <!-- Tote Bags -->
+      <div class="mb-16">
+        <h3 class="text-4xl font-bold text-center mb-8">Tote Bags</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+          <!-- Tote Bag 1: Cocoa Luxe -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Cocoa+Luxe+Tote" alt="Cocoa Luxe Tote Bag" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">Cocoa Luxe</h4>
+              <p class="text-lg mb-2">₹2,199</p>
+              <p class="text-sm mb-4">Elegant and versatile in a rich cocoa shade.</p>
+              <button onclick="initiatePayment('Cocoa Luxe', 2199)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+          <!-- Tote Bag 2: Sahara Dune -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Sahara+Dune+Tote" alt="Sahara Dune Tote Bag" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">Sahara Dune</h4>
+              <p class="text-lg mb-2">₹2,199</p>
+              <p class="text-sm mb-4">Inspired by desert hues, warm and sophisticated.</p>
+              <button onclick="initiatePayment('Sahara Dune', 2199)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+          <!-- Tote Bag 3: Noir Muse -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Noir+Muse+Tote" alt="Noir Muse Tote Bag" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">Noir Muse</h4>
+              <p class="text-lg mb-2">₹2,199</p>
+              <p class="text-sm mb-4">Sleek and modern in a bold black finish.</p>
+              <button onclick="initiatePayment('Noir Muse', 2199)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+          <!-- Tote Bag 4: Coffee Mist -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Coffee+Mist+Tote" alt="Coffee Mist Tote Bag" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">Coffee Mist</h4>
+              <p class="text-lg mb-2">₹2,299</p>
+              <p class="text-sm mb-4">A soft coffee shade with a misty elegance.</p>
+              <button onclick="initiatePayment('Coffee Mist', 2299)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+          <!-- Tote Bag 5: Cocoa Chic -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Cocoa+Chic+Tote" alt="Cocoa Chic Tote Bag" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">Cocoa Chic</h4>
+              <p class="text-lg mb-2">₹2,299</p>
+              <p class="text-sm mb-4">Chic and timeless in a deep cocoa tone.</p>
+              <button onclick="initiatePayment('Cocoa Chic', 2299)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duffel Bags -->
+      <div class="mb-16">
+        <h3 class="text-4xl font-bold text-center mb-8">Duffel Bags</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Duffel Bag 1: The Elfin Regent Duffel -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Elfin+Regent+Duffel" alt="The Elfin Regent Duffel" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">The Elfin Regent Duffel</h4>
+              <p class="text-lg mb-2">₹4,499</p>
+              <p class="text-sm mb-4">Regal and refined, perfect for luxury travel.</p>
+              <button onclick="initiatePayment('The Elfin Regent Duffel', 4499)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+          <!-- Duffel Bag 2: The Voyager Heritage Holdall -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Voyager+Heritage+Holdall" alt="The Voyager Heritage Holdall" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">The Voyager Heritage Holdall</h4>
+              <p class="text-lg mb-2">₹4,499</p>
+              <p class="text-sm mb-4">A classic holdall with a heritage-inspired design.</p>
+              <button onclick="initiatePayment('The Voyager Heritage Holdall', 4499)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+          <!-- Duffel Bag 3: The Amber Nomad Weekender -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Amber+Nomad+Weekender" alt="The Amber Nomad Weekender" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">The Amber Nomad Weekender</h4>
+              <p class="text-lg mb-2">₹4,499</p>
+              <p class="text-sm mb-4">Warm amber tones for the modern nomad.</p>
+              <button onclick="initiatePayment('The Amber Nomad Weekender', 4499)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+          <!-- Duffel Bag 4: The Maverick Expedition Duffle -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Maverick+Expedition+Duffle" alt="The Maverick Expedition Duffle" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">The Maverick Expedition Duffle</h4>
+              <p class="text-lg mb-2">₹4,499</p>
+              <p class="text-sm mb-4">Rugged and bold for your next adventure.</p>
+              <button onclick="initiatePayment('The Maverick Expedition Duffle', 4499)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+          <!-- Duffel Bag 5: The Oxford Legacy Duffle -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Oxford+Legacy+Duffle" alt="The Oxford Legacy Duffle" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">The Oxford Legacy Duffle</h4>
+              <p class="text-lg mb-2">₹4,499</p>
+              <p class="text-sm mb-4">Timeless elegance with a scholarly touch.</p>
+              <button onclick="initiatePayment('The Oxford Legacy Duffle', 4499)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+          <!-- Duffel Bag 6: The Burgundy Artisan Travel Bag -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Burgundy+Artisan+Travel+Bag" alt="The Burgundy Artisan Travel Bag" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">The Burgundy Artisan Travel Bag</h4>
+              <p class="text-lg mb-2">₹4,499</p>
+              <p class="text-sm mb-4">Crafted in rich burgundy for the discerning traveler.</p>
+              <button onclick="initiatePayment('The Burgundy Artisan Travel Bag', 4499)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+          <!-- Duffel Bag 7: The Midnight Executive Duffle -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Midnight+Executive+Duffle" alt="The Midnight Executive Duffle" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">The Midnight Executive Duffle</h4>
+              <p class="text-lg mb-2">₹4,499</p>
+              <p class="text-sm mb-4">Sleek midnight tones for the modern executive.</p>
+              <button onclick="initiatePayment('The Midnight Executive Duffle', 4499)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Laptop Bags -->
+      <div class="mb-16">
+        <h3 class="text-4xl font-bold text-center mb-8">Laptop Bags</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Laptop Bag 1: The Cognac -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=The+Cognac+Laptop+Bag" alt="The Cognac Laptop Bag" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">The Cognac</h4>
+              <p class="text-lg mb-2">₹2,499</p>
+              <p class="text-sm mb-4">Sophisticated cognac shade for professional elegance.</p>
+              <button onclick="initiatePayment('The Cognac', 2499)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+          <!-- Laptop Bag 2: Cognac Chic -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Cognac+Chic+Laptop+Bag" alt="Cognac Chic Laptop Bag" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">Cognac Chic</h4>
+              <p class="text-lg mb-2">₹2,499</p>
+              <p class="text-sm mb-4">A chic take on the classic cognac shade.</p>
+              <button onclick="initiatePayment('Cognac Chic', 2499)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+          <!-- Laptop Bag 3: The Obsidian -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=The+Obsidian+Laptop+Bag" alt="The Obsidian Laptop Bag" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">The Obsidian</h4>
+              <p class="text-lg mb-2">₹2,499</p>
+              <p class="text-sm mb-4">Timeless black for a sleek, modern look.</p>
+              <button onclick="initiatePayment('The Obsidian', 2499)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+          <!-- Laptop Bag 4: Cognac Tan -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=Cognac+Tan+Laptop+Bag" alt="Cognac Tan Laptop Bag" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">Cognac Tan</h4>
+              <p class="text-lg mb-2">₹2,499</p>
+              <p class="text-sm mb-4">A lighter cognac tan for a refined finish.</p>
+              <button onclick="initiatePayment('Cognac Tan', 2499)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sling Bag -->
+      <div class="mb-16">
+        <h3 class="text-4xl font-bold text-center mb-8">Sling Bag</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8 max-w-md mx-auto">
+          <!-- Sling Bag: The Tan Trolley -->
+          <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden">
+            <div class="w-full h-72 bg-gray-200 flex items-center justify-center">
+              <img src="https://via.placeholder.com/400x400?text=The+Tan+Trolley+Sling+Bag" alt="The Tan Trolley Sling Bag" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold text-[#4A2C0F]">The Tan Trolley</h4>
+              <p class="text-lg mb-2">₹1,599</p>
+              <p class="text-sm mb-4">Stylish tan sling for effortless elegance.</p>
+              <button onclick="initiatePayment('The Tan Trolley', 1599)" class="inline-block btn-luxury py-2 px-4 rounded-lg">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="leather-bg text-[#F8F1E9] py-12">
+    <div class="container mx-auto px-6 text-center">
+      <p class="text-xl mb-4">Elfin International © 2025. All rights reserved.</p>
+      <p class="text-lg mb-4">Contact us: <a href="tel:+919625629993" class="hover:text-[#D4A373]">+91 96256 29993</a></p>
+      <p class="text-lg mb-4">Find our products on:</p>
+      <div class="flex justify-center space-x-6 mb-6">
+        <a href="#" class="text-lg hover:text-[#D4A373]">Etsy</a>
+        <a href="#" class="text-lg hover:text-[#D4A373]">Amazon</a>
+      </div>
+      <div class="flex justify-center space-x-6">
+        <a href="#" class="hover:text-[#D4A373]">Instagram</a>
+        <a href="#" class="hover:text-[#D4A373]">Facebook</a>
+        <a href="#" class="hover:text-[#D4A373]">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Razorpay Payment Gateway Integration
+    function initiatePayment(productName, amount) {
+      var options = {
+        "key": "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
+        "amount": amount * 100, // Amount in paise (e.g., ₹2199 = 219900 paise)
+        "currency": "INR",
+        "name": "Elfin International",
+        "description": "Purchase of " + productName,
+        "image": "https://your-logo-url.com/logo.png", // Replace with your logo URL
+        "handler": function (response) {
+          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+          // You can redirect or handle success here
+        },
+        "prefill": {
+          "name": "Customer Name",
+          "email": "customer@example.com",
+          "contact": "9999999999"
+        },
+        "notes": {
+          "product": productName
+        },
+        "theme": {
+          "color": "#4A2C0F" // Matches your brand's deep brown theme
+        }
+      };
+      var rzp = new Razorpay(options);
+      rzp.open();
+    }
+  </script>
+</body>
+</html>
